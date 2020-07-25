@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  db_server:
+    image: mariadb
+    container_name: db_store_server
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: store
+      MYSQL_USER: alexander
+      MYSQL_PASSWORD: alexander
+    ports:
+    - 3306:3306
+    volumes:
+    - ./database/shemas:/var/lib/mysql
+    networks:
+      internal_store_network:
+        ipv4_address: 172.23.0.2
+  web_server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: web_store_server
+    ports:
+    - 8000:80
+    volumes:
+    - ./app:/var/www/html
+    networks:
+      internal_store_network:
+        ipv4_address: 172.23.0.3
+    depends_on:
+      - db_server
+volumes:
+  database:
+networks:
+  internal_store_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.23.0.0/24
