@@ -9,6 +9,14 @@
     }
 
     /**
+     * Return media files route
+     * @return string
+     */
+        function media(){
+            return BASE_URL.'Assets';
+        }
+
+    /**
      *function to format the print of arrays
      * @param $data
      * @return string

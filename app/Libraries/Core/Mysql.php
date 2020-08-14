@@ -11,7 +11,7 @@ class Mysql extends Connection{
         $this->connection = $this->connection->connect();
     }
 
-    /********************************* Insert a ne register**********************************
+    /********************************* Insert a new register**********************************
      * @param string $query
      * @param array $values
      * @return int
