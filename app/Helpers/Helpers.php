@@ -13,8 +13,18 @@
      * @return string
      */
         function media(){
-            return BASE_URL.'Assets';
+            return BASE_URL.'/Assets';
         }
+
+     function headerAdmin($data = ""){
+            $viewHeader = 'Views/Templates/headerAdmin.php';
+            require_once ($viewHeader);
+     }
+
+    function footerAdmin($data = ""){
+        $viewHeader = 'Views/Templates/footerAdmin.php';
+        require_once ($viewHeader);
+    }
 
     /**
      *function to format the print of arrays

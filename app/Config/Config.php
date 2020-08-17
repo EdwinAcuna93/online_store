@@ -1,5 +1,5 @@
 <?php
-    const BASE_URL = 'http://192.168.0.9:8000/';
+    const BASE_URL = 'http://192.168.0.9:8000';
 
     //Define timezone
     date_default_timezone_set('America/El_Salvador');
