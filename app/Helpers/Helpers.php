@@ -37,6 +37,9 @@
         $format .= print_r('</pre>');
         return $format;
     }
+    function getModal(string $nameModal, $data = ""){
+        $viewModal = 
+    }
 
     /**
      * Funtion for sanitize text inputs
