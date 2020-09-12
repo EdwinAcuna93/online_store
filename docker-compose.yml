@@ -5,13 +5,13 @@ services:
     container_name: db_store_server
     environment:
       MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: store
+      MYSQL_DATABASE: db_store
       MYSQL_USER: alexander
       MYSQL_PASSWORD: alexander
     ports:
     - 3306:3306
     volumes:
-    - ./database/shemas:/var/lib/mysql
+      - ./database/shemas:/var/lib/mysql
     networks:
       internal_store_network:
         ipv4_address: 172.23.0.2

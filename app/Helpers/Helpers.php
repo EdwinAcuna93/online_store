@@ -37,8 +37,15 @@
         $format .= print_r('</pre>');
         return $format;
     }
-    function getModal(string $nameModal, $data = ""){
-        $viewModal = 
+
+/**
+ * Function for include modal views
+ * @param string $modalName
+ * @param $data
+ */
+    function getModal(string $modalName, $data){
+        $viewModal = "Views/Templates/Modals/{$modalName}.php";
+        require_once $viewModal;
     }
 
     /**

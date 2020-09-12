@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Nuevo Rol</h5>
+                <h5 class="modal-title">Nuevo Rol</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,19 +11,17 @@
             <div class="modal-body">
                 <form name="formRol" id="formRol">
                     <div class="form-group">
-                        <label class="control-label">Nombre</label>
-                        <input class="form-control" id="rolName" name="rolName" type="text" placeholder="Nombre del rol"
-                               required>
+                        <label class="control-label">Nombre:</label>
+                        <input class="form-control" id="rolName" name="rolName" type="text" placeholder="Nombre del rol" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">Descripción</label>
-                        <textarea class="form-control" rows="2" name="rolDescription" id="rolDescription"
-                                  placeholder="Descripción del rol"></textarea>
+                        <label class="control-label">Descripción:</label>
+                        <textarea class="form-control" rows="2" name="rolDescription" id="rolDescription" placeholder="Descripción del rol" required></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleSelect1">Estado</label>
+                        <label for="exampleSelect1">Estado:</label>
                         <select class="form-control" id="rolStatus" name="rolStatus" required>
                             <option value="active">Activo</option>
                             <option value="inactive">Inactivo</option>
