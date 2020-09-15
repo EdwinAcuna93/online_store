@@ -17,3 +17,6 @@
 
     //Currency symbol
     const SMONEY = '$';
+
+
+

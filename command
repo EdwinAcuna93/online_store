@@ -1,0 +1,1 @@
+cat dump.sql | docker exec -i mysql-container mysql -uuser -ppassword db_name

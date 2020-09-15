@@ -12,19 +12,19 @@
                 <form name="formRol" id="formRol">
                     <div class="form-group">
                         <label class="control-label">Nombre:</label>
-                        <input class="form-control" id="rolName" name="rolName" type="text" placeholder="Nombre del rol" required>
+                        <input class="form-control" id="rolName" name="rolName" type="text" placeholder="Nombre del rol" >
                     </div>
 
                     <div class="form-group">
                         <label class="control-label">Descripción:</label>
-                        <textarea class="form-control" rows="2" name="rolDescription" id="rolDescription" placeholder="Descripción del rol" required></textarea>
+                        <textarea class="form-control" rows="2" name="rolDescription" id="rolDescription" placeholder="Descripción del rol" ></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleSelect1">Estado:</label>
-                        <select class="form-control" id="rolStatus" name="rolStatus" required>
-                            <option value="active">Activo</option>
-                            <option value="inactive">Inactivo</option>
+                        <select class="form-control" id="rolStatus" name="rolStatus" >
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
                         </select>
                     </div>
 

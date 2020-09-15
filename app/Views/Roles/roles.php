@@ -28,6 +28,7 @@
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Estado</th>
+                                    <th>Opciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>

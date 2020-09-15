@@ -54,7 +54,8 @@
      * @return string|string[]|null
      */
     function strClean($string){
-         $cleanString = preg_replace(['/\s+/','/^\s|\s$/'],[' ',''],$string);
+         $cleanString= preg_replace('/\s\s+/', ' ', $string);
+         //$cleanString = preg_replace(['/\s+/','/^\s|\s$/'],[' ',''],$string);
          $cleanString = trim($cleanString); //elimina espacios en blanco
          $cleanString = stripcslashes($cleanString); // elimina las \ invertidas
          $cleanString = str_replace('<script>','',$cleanString);
