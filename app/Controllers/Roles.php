@@ -9,7 +9,7 @@ class Roles extends Controllers{
 
     /**
      * Méthod for return the index of roles
-     * @return
+     *
      */
     public function roles(){
         $data['page_id'] = 3;
@@ -22,7 +22,7 @@ class Roles extends Controllers{
 
     /**
      * Get all roles
-     * @return data json format
+     * @return $data json format
      */
     public function getRoles(){
         $data = $this->model->selectRoles();
@@ -35,9 +35,9 @@ class Roles extends Controllers{
             }
 
             $data[$i]['options'] = '<div class="text-center">
-                <button class="btn btn-secondary btn-sm btnPermissionsRol" id="'.$data[$i]['idRol'].'" title="Permisos"><i class="fas fa-key"></i></button>
-                <button class="btn btn-primary btn-sm btnEditRol" id="'.$data[$i]['idRol'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
-                <button class="btn btn-danger btn-sm btnDeleteRol" id="'.$data[$i]['idRol'].'" title="Elimar"><i class="fas fa-key"></i></button>
+                <button class="btn btn-secondary btn-sm btnPermissionsRol" rl="'.$data[$i]['idrol'].'" title="Permisos"><i class="fas fa-key"></i></button>
+                <button class="btn btn-primary btn-sm btnEditRol" rl="'.$data[$i]['idrol'].'" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-sm btnDeleteRol" rl="'.$data[$i]['idrol'].'" title="Elimar"><i class="fas fa-key"></i></button>
             </div>';
         }
         //Return the data in Json format
@@ -46,14 +46,35 @@ class Roles extends Controllers{
     }
 
     /**
+     * Function to get a single register
+     * @param int $idRol
+     * @return $response
+     */
+    public function getRol(int $idRol){
+        $idRol = intval(strClean($idRol));
+        if ($idRol > 0){
+            $data = $this->model->selectRol($idRol);
+            if (!empty($data)){
+                $response = array('status' => true, 'data' => $data);
+            }else{
+                $response = array('status' => false, 'msg' => 'Datos no encontrados');
+            }
+            echo json_encode($response,JSON_UNESCAPED_UNICODE);
+        }
+        die();
+    }
+
+    /**
      * Method to insert a new rol
+     *
+     * @return $data
      */
     public function setRol(){
 
-        //$rolName = strClean($_POST['rolName']);
-        $rolName = filter_var(($_POST['rolName']) , FILTER_SANITIZE_STRING);
-        $rolDescription = strClean($_POST['rolDescription']);
-        $rolStatus = intval($_POST['rolStatus']);
+        //$rolName = strClean($_POST['nameROl']);
+        $rolName = filter_var(($_POST['nameRol']) , FILTER_SANITIZE_STRING);
+        $rolDescription = strClean($_POST['descriptionRol']);
+        $rolStatus = intval($_POST['statusRol']);
 
         $request_rol = $this->model->insertRol($rolName,$rolDescription,$rolStatus);
 

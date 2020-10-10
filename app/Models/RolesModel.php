@@ -3,10 +3,10 @@
 
 class RolesModel extends Mysql{
 
-    public $rolId;
-    public $roLName;
-    public $rolDescription;
-    public $rolStatus;
+    public $idRol;
+    public $nameRol;
+    public $descriptionRol;
+    public $statusRol;
 
     public function __construct(){
         parent::__construct();
@@ -24,6 +24,18 @@ class RolesModel extends Mysql{
     }
 
     /**
+     * Function to get single rol
+     * @param int $id
+     * @return mixed
+     */
+    public function selectRol( int $id){
+        $this->idRol = $id;
+        $sql = "SELECT * FROM rol WHERE idrol = $this->idRol";
+        $response = $this->select($sql);
+        return $response;
+    }
+
+    /**
      * Function to execute insert function in Mysql file.
      * @param string $name
      * @param string $description
@@ -32,17 +44,17 @@ class RolesModel extends Mysql{
      */
     public function insertRol(string $name, string $description, int $status){
         $response = "";
-        $this->roLName = $name;
-        $this->rolDescription = $description;
-        $this->rolStatus = $status;
+        $this->nameRol = $name;
+        $this->descriptionRol = $description;
+        $this->statusRol = $status;
 
         //Verify if the role exists
-        $sql = "SELECT * FROM rol WHERE nombrerol = '{$this->roLName}'";
+        $sql = "SELECT * FROM rol WHERE nombrerol = '{$this->nameRol}'";
         $request = $this->selectAll($sql);
 
         if(empty($request)){
             $query_insert = "INSERT INTO rol(nombrerol,descripcion,status) VALUES (?,?,?)";
-            $data = array($this->roLName,$this->rolDescription,$this->rolStatus);
+            $data = array($this->nameRol,$this->descriptionRol,$this->statusRol);
             $response = $this->insert($query_insert, $data);
         }else{
             $response = "exist";
@@ -50,6 +62,7 @@ class RolesModel extends Mysql{
 
         return $response;
     }
+
 
 
 
